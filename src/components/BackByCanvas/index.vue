@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <code-rain/> -->
-    <star-point />
+    <code-rain />
+    <!-- <star-point /> -->
   </div>
 </template>
 

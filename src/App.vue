@@ -17,7 +17,7 @@ import { NIcon } from 'naive-ui'
 import { BookmarkOutline, CaretDownOutline } from '@vicons/ionicons5'
 
 const bgType = ref<TCompo.IBackByCanvasType>('dom1')
-const collapsed = ref(true)
+const collapsed = ref(false)
 const menuOptions: MenuOption[] = [
   {
     label: '且听风吟',
@@ -135,13 +135,14 @@ const expandIcon = () => {
           />
         </n-layout-sider>
         <n-layout>
-          <n-switch v-model:value="collapsed" />
+          <!-- <n-switch v-model:value="collapsed" />
           <n-layout-header>颐和园路</n-layout-header>
           <n-layout-content content-style="padding: 24px;"> 平山道 </n-layout-content>
-          <n-layout-footer>成府路</n-layout-footer>
+          <n-layout-footer>成府路</n-layout-footer> -->
+
+          <RouterView />
         </n-layout>
       </n-layout>
-      <RouterView />
     </div>
   </div>
 </template>
