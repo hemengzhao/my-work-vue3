@@ -4,16 +4,10 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-
+import { getRandomIntInclusive } from '@util/numberToll.ts'
 const text = '1234567890abcdefghijklmnnopqrstuvwxyz'
 const fontsize = 20
 const canvasRef = ref<HTMLCanvasElement | null>(null)
-
-const getRandomIntInclusive = (min: number, max: number): number => {
-  const minCeiled = Math.ceil(min)
-  const maxFloored = Math.floor(max)
-  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled)
-}
 
 let lastTime: number | null = null
 const animationFrameId = ref()
@@ -61,8 +55,8 @@ onMounted(() => {
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
-    colIndex.fill(0)
-    draw(ctx, canvas, colIndex, column)
+    // colIndex.fill(0)
+    // draw(ctx, canvas, colIndex, column)
   })
 })
 onUnmounted(() => {

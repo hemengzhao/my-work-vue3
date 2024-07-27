@@ -11,7 +11,8 @@
       "path": "./tsconfig.vitest.json"
     }
   ],
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts" ],
   "compilerOptions": {
-    "module": "NodeNext"
+    "module": "NodeNext",
   }
 }

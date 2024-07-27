@@ -14,12 +14,14 @@ docs
 dist-ssr
 coverage
 *.local
+yarn.lock
 
 /cypress/videos/
 /cypress/screenshots/
 
 # Editor directories and files
 .vscode/*
+.vite/*
 !.vscode/extensions.json
 .idea
 *.suo
@@ -29,3 +31,4 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
