@@ -1,30 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
+const pages = import.meta.glob('../views/**/page.ts', {
+  eager: true,
+  import: 'default'
+})
+
+const comments = import.meta.glob('../views/**/index.vue')
+
+const routes: RouteRecordRaw[] = Object.entries(pages).map(([path, meta]) => {
+  const compsPath = path.replace('page.ts', 'index.vue')
+  path = path.replace('../views', '').replace('/page.ts', '') || '/'
+  const name = path.split('/').filter(Boolean).join('-') || 'index'
+  console.log(path, name)
+  return {
+    path,
+    name, 
+    meta,
+    redirect: meta.redirect,  
+    component: () => import(compsPath)
+  }
+})
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      redirect: '/background'
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    },
-    {
-      path: '/background',
-      name: 'background',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/background/index.vue')
-    }
-  ]
+  routes:  routes
 })
 
 export default router

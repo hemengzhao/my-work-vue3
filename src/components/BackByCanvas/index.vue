@@ -1,7 +1,7 @@
 <template>
   <div>
-    <code-rain />
-    <!-- <star-point /> -->
+       <code-rain v-if="type === 'dom1'" />
+    <star-point v-else-if="type === 'dom2'" />
   </div>
 </template>
 
@@ -9,9 +9,12 @@
 import { defineProps } from 'vue'
 import CodeRain from './code-rain.vue'
 import StarPoint from './star-point.vue'
-defineProps<{
+
+interface Props {
   type: TCompo.IBackByCanvasType
-}>()
+}
+
+defineProps<Props>()
 </script>
 
 <style scoped lang="scss"></style>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { defineComponent, h, ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView,   } from 'vue-router'
+import router from '@/router/index'
+ console.log('router', router)
 import HelloWorld from './components/HelloWorld.vue'
 import BackByCanvas from './components/BackByCanvas/index.vue'
 import {
@@ -18,83 +20,24 @@ import { BookmarkOutline, CaretDownOutline } from '@vicons/ionicons5'
 
 const bgType = ref<TCompo.IBackByCanvasType>('dom1')
 const collapsed = ref(false)
-const menuOptions: MenuOption[] = [
-  {
-    label: '且听风吟',
-    key: 'hear-the-wind-sing',
-    href: 'https://baike.baidu.com/item/%E4%B8%94%E5%90%AC%E9%A3%8E%E5%90%9F/3199'
-  },
-  {
-    label: '1973年的弹珠玩具',
-    key: 'pinball-1973',
-    disabled: true,
-    children: [
-      {
-        label: '鼠',
-        key: 'rat'
-      }
-    ]
-  },
-  {
-    label: '寻羊冒险记',
-    key: 'a-wild-sheep-chase',
-    disabled: true
-  },
-  {
-    label: '舞，舞，舞',
-    key: 'dance-dance-dance',
-    children: [
-      {
-        type: 'group',
-        label: '人物',
-        key: 'people',
-        children: [
-          {
-            label: '叙事者',
-            key: 'narrator'
-          },
-          {
-            label: '羊男',
-            key: 'sheep-man'
-          }
-        ]
-      },
-      {
-        label: '饮品',
-        key: 'beverage',
-        children: [
-          {
-            label: '威士忌',
-            key: 'whisky',
-            href: 'https://baike.baidu.com/item/%E5%A8%81%E5%A3%AB%E5%BF%8C%E9%85%92/2959816?fromtitle=%E5%A8%81%E5%A3%AB%E5%BF%8C&fromid=573&fr=aladdin'
-          }
-        ]
-      },
-      {
-        label: '食物',
-        key: 'food',
-        children: [
-          {
-            label: '三明治',
-            key: 'sandwich'
-          }
-        ]
-      },
-      {
-        label: '过去增多，未来减少',
-        key: 'the-past-increases-the-future-recedes'
-      }
-    ]
-  }
-]
 
-const renderMenuLabel = (option: MenuOption) => {
-  if ('href' in option) {
-    return h('a', { href: option.href, target: '_blank' }, option.label as string)
+const menuOptions: MenuOption[]  = router.options.routes.map((item) => {
+  return { 
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: item.name
+          }
+        },
+        { default: () => item.meta.title }
+      ), 
+    key: item.name,  
   }
-
-  return option.label as string
-}
+})
+ 
+ 
 const renderMenuIcon = (option: MenuOption) => {
   // 渲染图标占位符以保持缩进
   if (option.key === 'sheep-man') return true
@@ -128,11 +71,10 @@ const expandIcon = () => {
             :collapsed="collapsed"
             :collapsed-width="64"
             :collapsed-icon-size="22"
-            :options="menuOptions"
-            :render-label="renderMenuLabel"
+            :options="menuOptions" 
             :render-icon="renderMenuIcon"
             :expand-icon="expandIcon"
-          />
+          /> 
         </n-layout-sider>
         <n-layout>
           <!-- <n-switch v-model:value="collapsed" />

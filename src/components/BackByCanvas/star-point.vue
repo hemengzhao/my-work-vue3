@@ -106,7 +106,7 @@ onMounted(() => {
 
   canvas.width = window.innerWidth * devicePixelRatio
   canvas.height = window.innerHeight * devicePixelRatio
-
+   
   const gra = new Graph(canvas)
 
   const visibilityChangeHandler = () => {
@@ -122,6 +122,11 @@ onMounted(() => {
   document.addEventListener('visibilitychange', visibilityChangeHandler)
 
   gra.draw(ctx, canvas)
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight 
+  })
 
   onUnmounted(() => {
     cancelAnimationFrame(animationFrameId.value)
@@ -140,7 +145,6 @@ body {
 }
 #canvas {
   background-color: black;
-  width: 100%;
-  height: 100%;
+ 
 }
 </style>
