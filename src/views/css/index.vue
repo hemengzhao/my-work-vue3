@@ -1,10 +1,7 @@
 <template>
-<h1>Css page</h1>
+  <h1>Css page</h1>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped lang="scss">
-</style>git branch -f main HEAD~3
+<style scoped lang="scss"></style>

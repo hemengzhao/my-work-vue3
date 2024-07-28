@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = Object.entries(pages).map(([path, meta]) => {
     name, 
     meta,
     redirect: meta.redirect,  
-    component: () => import(compsPath)
+    component: comments[compsPath]
   }
 })
 const router = createRouter({
