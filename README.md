@@ -14,6 +14,10 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## 开发约定
+
+1. 在views文件创建文件 \*\*\*/index.vue 自动注册路由 page.ts 路由相关的信息
+
 ## Project Setup
 
 ```sh

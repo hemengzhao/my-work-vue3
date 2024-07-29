@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { defineComponent, h, ref } from 'vue'
-import { RouterLink, RouterView,   } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router'
 import router from '@/router/index'
- console.log('router', router)
-import HelloWorld from './components/HelloWorld.vue'
+console.log('router', router)
+import './utils/js/array/concurrentTasks.ts'
 import BackByCanvas from './components/BackByCanvas/index.vue'
 import {
   NLayout,
@@ -21,8 +21,8 @@ import { BookmarkOutline, CaretDownOutline } from '@vicons/ionicons5'
 const bgType = ref<TCompo.IBackByCanvasType>('dom1')
 const collapsed = ref(false)
 
-const menuOptions: MenuOption[]  = router.options.routes.map((item) => {
-  return { 
+const menuOptions: MenuOption[] = router.options.routes.map((item) => {
+  return {
     label: () =>
       h(
         RouterLink,
@@ -32,12 +32,11 @@ const menuOptions: MenuOption[]  = router.options.routes.map((item) => {
           }
         },
         { default: () => item.meta.title }
-      ), 
-    key: item.name,  
+      ),
+    key: item.name
   }
 })
- 
- 
+
 const renderMenuIcon = (option: MenuOption) => {
   // 渲染图标占位符以保持缩进
   if (option.key === 'sheep-man') return true
@@ -71,10 +70,10 @@ const expandIcon = () => {
             :collapsed="collapsed"
             :collapsed-width="64"
             :collapsed-icon-size="22"
-            :options="menuOptions" 
+            :options="menuOptions"
             :render-icon="renderMenuIcon"
             :expand-icon="expandIcon"
-          /> 
+          />
         </n-layout-sider>
         <n-layout>
           <!-- <n-switch v-model:value="collapsed" />
