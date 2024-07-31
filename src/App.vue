@@ -18,7 +18,7 @@ import type { MenuOption } from 'naive-ui'
 import { NIcon } from 'naive-ui'
 import { BookmarkOutline, CaretDownOutline } from '@vicons/ionicons5'
 
-const bgType = ref<TCompo.IBackByCanvasType>('dom1')
+const bgType = ref<TCompo.IBackByCanvasType>('code-rain')
 const collapsed = ref(false)
 
 const menuOptions: MenuOption[] = router.options.routes.map((item) => {

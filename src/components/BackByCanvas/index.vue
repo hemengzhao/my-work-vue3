@@ -1,7 +1,7 @@
 <template>
   <div>
-       <code-rain v-if="type === 'dom1'" />
-    <star-point v-else-if="type === 'dom2'" />
+    <code-rain v-if="type === 'code-rain'" />
+    <star-point v-else-if="type === 'star-point'" />
   </div>
 </template>
 
