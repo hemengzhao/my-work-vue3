@@ -1,6 +1,7 @@
 {
+  "exclude": ["node_modules", "dist"],
   "files": [],
-
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.vue", "src/**/*.js", "src/**/*.d.ts", "./auto-imports.d.ts"],
   "references": [{
       "path": "./tsconfig.node.json"
     },
@@ -8,8 +9,13 @@
       "path": "./tsconfig.app.json"
     },
   ],
-  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "./auto-imports.d.ts", ],
+
   "compilerOptions": {
     "module": "nodenext",
-  },
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@util/*": ["src/util/*"]
+    }
+  }
 }

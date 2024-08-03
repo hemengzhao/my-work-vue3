@@ -1,3 +1,3 @@
-declare module TCompo {
+declare namespace TCompo {
   type IBackByCanvasType = 'code-rain' | 'star-point'
 }
