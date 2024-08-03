@@ -1,7 +1,22 @@
 <template>
-  <h1>Css page</h1>
+  <n-card title="歌曲" style="margin-bottom: 16px">
+    <n-tabs type="line" animated>
+      <n-tab-pane name="attribute" tab="css属性">
+        <div>
+          <div>边框颜色跟随文字颜色一致</div>
+          <div>currentColor</div>
+        </div>
+      </n-tab-pane>
+      <n-tab-pane name="the beatles" tab="the Beatles"> Hey Jude </n-tab-pane>
+      <n-tab-pane name="jay chou" tab="周杰伦">
+        七里香 {{ cunts }} <n-button @click="cunts++">点击</n-button></n-tab-pane
+      >
+    </n-tabs>
+  </n-card>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const cunts = ref<number>(0)
+</script>
 
 <style scoped lang="scss"></style>

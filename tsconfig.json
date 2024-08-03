@@ -1,18 +1,14 @@
 {
-  "files": [], 
+  "files": [],
 
-  "references": [
-    {
+  "references": [{
       "path": "./tsconfig.node.json"
     },
     {
       "path": "./tsconfig.app.json"
     },
-    {
-      "path": "./tsconfig.vitest.json"
-    }
   ],
-  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts" ],
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "./auto-imports.d.ts", ],
   "compilerOptions": {
     "module": "nodenext",
   },
