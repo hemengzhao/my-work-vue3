@@ -7,8 +7,7 @@
           <div>currentColor</div>
         </div>
       </n-tab-pane>
-      <n-tab-pane name="无视差滚动" tab="the Beatles">
-        asds
+      <n-tab-pane name="infiniteBanner" tab="无视差滚动">
         <div style="height: 100vh">
           <infinite-banner />
         </div>

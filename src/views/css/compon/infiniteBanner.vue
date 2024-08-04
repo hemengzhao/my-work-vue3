@@ -65,18 +65,12 @@ useEventListener(el, 'transitionend', () => {
   const directionName = direction.value
   isAnimation.value = false
   direction.value = 'none'
-  let curr
+
   if (directionName === 'up') {
-    curr = currIndex.value + 1 >= imgs.length ? 0 : currIndex.value + 1
+    currIndex.value = currIndex.value + 1 >= imgs.length ? 0 : currIndex.value + 1
   } else {
-    curr = currIndex.value - 1 < 0 ? imgs.length - 1 : currIndex.value - 1
+    currIndex.value = currIndex.value - 1 < 0 ? imgs.length - 1 : currIndex.value - 1
   }
-  currIndex.value = curr
-  // showImgs.value[1] = imgs[curr]
-  // setTimeout(() => {
-  //   currIndex.value = curr
-  // }, 1000 * 5)
-  // nextTick(() => {})
 })
 </script>
 
