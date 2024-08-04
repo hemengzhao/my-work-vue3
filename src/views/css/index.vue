@@ -7,7 +7,12 @@
           <div>currentColor</div>
         </div>
       </n-tab-pane>
-      <n-tab-pane name="the beatles" tab="the Beatles"> Hey Jude </n-tab-pane>
+      <n-tab-pane name="无视差滚动" tab="the Beatles">
+        asds
+        <div style="height: 100vh">
+          <infinite-banner />
+        </div>
+      </n-tab-pane>
       <n-tab-pane name="jay chou" tab="周杰伦">
         七里香 {{ cunts }} <n-button @click="cunts++">点击</n-button></n-tab-pane
       >
@@ -16,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import infiniteBanner from './compon/infiniteBanner.vue'
 const cunts = ref<number>(0)
 </script>
 

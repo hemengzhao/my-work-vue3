@@ -7,6 +7,7 @@ import AutoImprot from 'unplugin-auto-import/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    vue(),
     AutoImprot({
       imports: ['vue', 'vue-router', 'pinia'],
       dts: './auto-imports.d.ts',

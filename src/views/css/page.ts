@@ -1,5 +1,3 @@
- 
-
 export default {
-    title: 'css样式', 
+  title: 'css样式'
 }
